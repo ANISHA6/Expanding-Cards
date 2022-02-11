@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+*{
+	box-sizing: border-box;
+}
+body{
+	font-family: sans-serif;
+	display: flex;
+	/*Align to the center top to down*/
+	align-items: center;
+	/*Align to the center left to right*/
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+}
+.container{
+	display: flex;
+	width: 90vw;
+
+
+}
+
+.panel{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 80vh;
+	/*to make them rounded*/
+	border-radius: 50px;
+	color: orange;
+	cursor: pointer;
+	flex: 0.5;
+	/*Give the space around the element*/
+	margin: 10px;
+	/*to make h3 absolute*/
+	position: relative;
+	transition: flex 0.7s ease-in;
+
+
+
+}
+.panel h3{
+	font-size: 24px;
+	/*No extra space reserved, it will present within the div*/
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	/*To make text invisible*/
+	opacity: 0;
+	margin: 0;
+
+
+}
+
+.panel.active{
+	/*First div expanding til flex 5*/
+	flex: 5;
+}
+
+.panel.active h3{
+	/*Make text visible*/
+	opacity: 1;
+	/*Make transition on opacity, 0.4s is delay */
+	transition: opacity 0.3s ease-in 0.4s;
+}
+
+/*for the smaller screen device*/
+@media (max-width: 480px){
+	.container{
+		width: 100vw;
+	}
+	/*For smaller screen 4th and 5th div will not display*/
+	.panel:nth-of-type(4),
+	.panel:nth-of-type(5){
+		display: none;
+	}
+
+}
+
